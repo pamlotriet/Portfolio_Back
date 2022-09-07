@@ -14,6 +14,7 @@ namespace portfolio_back.Controllers
        SendMailService sendMailService = new SendMailService();
 
         [HttpPost]
+        [Route("/sendMail")]
         public void sendEmailToMe(MailRequest request)
         {
             sendMailService.sendNotification(request);
