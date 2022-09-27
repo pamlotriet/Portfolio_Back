@@ -16,7 +16,7 @@ namespace portfolio_back.Services
             email.From.Add(MailboxAddress.Parse("pamela.lotriet@gmail.com"));
             email.To.Add(MailboxAddress.Parse("pamela.lotriet@gmail.com"));
             email.Subject = "Portfolio Inquiry";
-            email.Body = new TextPart(TextFormat.Text) { Text = request.Body };
+            email.Body = new TextPart(TextFormat.Text) { Text = request.Body + "\n\n" + request.FromMail };
 
             // send email
             using var smtp = new SmtpClient();
