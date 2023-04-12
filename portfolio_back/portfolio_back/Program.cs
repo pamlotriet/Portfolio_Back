@@ -6,7 +6,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy(name: MyAllowSpecificOrigins,
                       builder =>
                       {
-                          builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+                          builder.WithOrigins("https://pamlotriet.github.io/");
                       });
 });
 
