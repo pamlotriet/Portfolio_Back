@@ -1,14 +1,14 @@
 var builder = WebApplication.CreateBuilder(args);
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
-/*builder.Services.AddCors(options =>
+builder.Services.AddCors(options =>
 {
     options.AddPolicy(name: MyAllowSpecificOrigins,
                       builder =>
                       {
-                          builder.WithOrigins("https://pamlotriet.github.io/");
+                          builder.AllowAnyHeader().AllowAnyOrigin().AllowAnyMethod();
                       });
-});*/
+});
 
 // Add services to the container.
 
@@ -27,7 +27,7 @@ if (app.Environment.IsDevelopment())
 }
 
 var builders = new ConfigurationBuilder().AddJsonFile("appsettings.json");
-/*app.UseCors(MyAllowSpecificOrigins);*/
+app.UseCors(MyAllowSpecificOrigins);
 
 app.UseHttpsRedirection();
 
